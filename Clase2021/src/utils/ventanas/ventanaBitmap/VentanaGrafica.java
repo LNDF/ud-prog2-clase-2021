@@ -313,10 +313,21 @@ public class VentanaGrafica {
 	 * @param altura	Altura en píxels (valor positivo) de la zona de pintado
 	 * @param titulo	Título de la ventana
 	 */
-	@SuppressWarnings("serial")
 	public VentanaGrafica( int anchura, int altura, String titulo ) {
+		this(anchura, altura, titulo, Color.white);
+	}
+	
+	/** Construye una nueva ventana gráfica y la visualiza en el centro de la pantalla
+	 * @param anchura	Anchura en píxels (valor positivo) de la zona de pintado
+	 * @param altura	Altura en píxels (valor positivo) de la zona de pintado
+	 * @param titulo	Título de la ventana
+	 * @param colorDeFondo  El color de fondo de la ventana gráfica
+	 */
+	@SuppressWarnings("serial")
+	public VentanaGrafica(int anchura, int altura, String titulo, Color colorDeFondo) {
 		setLookAndFeel();
 		cerrada = false;
+		colorFondo = colorDeFondo;
 		ventana = new JFrame( titulo );
 		ventana.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		// ventana.setSize( anchura, altura ); -- se hace en función del tamaño preferido del panel de dibujo
@@ -404,17 +415,6 @@ public class VentanaGrafica {
 				e1.printStackTrace();
 			}
 		}
-	}
-	
-	/** Construye una nueva ventana gráfica y la visualiza en el centro de la pantalla
-	 * @param anchura	Anchura en píxels (valor positivo) de la zona de pintado
-	 * @param altura	Altura en píxels (valor positivo) de la zona de pintado
-	 * @param titulo	Título de la ventana
-	 * @param colorDeFondo  El color de fondo de la ventana gráfica
-	 */
-	public VentanaGrafica(int anchura, int altura, String titulo, Color colorDeFondo) {
-		this(anchura, altura, titulo);
-		this.colorFondo = colorDeFondo;
 	}
 
 	// Intenta poner el look & feel nimbus (solo la primera vez que se crea una ventana)
